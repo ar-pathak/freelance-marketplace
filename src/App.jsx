@@ -1,11 +1,11 @@
 import ReactDOM from "react-dom/client";
 import React from 'react'
-import reactDom from "react-dom";
+import Navbar from "./layout/Navbar";
 
 const App = () => {
     return (
         <div>
-            <h1 className="text-4xl font-bold">Fiverr | Freelance Services Marketplace for Businesses</h1>
+            <Navbar />
         </div>
     )
 }
