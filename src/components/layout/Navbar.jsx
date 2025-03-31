@@ -8,12 +8,21 @@ const Navbar = () => {
     const [isSearchFocused, setIsSearchFocused] = useState(false);
     const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [showSearch, setShowSearch] = useState(false);
 
     // Handle scroll effect
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
+            const scrollPosition = window.scrollY;
+            setIsScrolled(scrollPosition > 20);
+            
+            // Get the jumbotron height (90vh on mobile, 100vh on desktop)
+            const jumbotronHeight = window.innerWidth < 768 ? window.innerHeight * 0.9 : window.innerHeight;
+            
+            // Show search when scrolled past jumbotron
+            setShowSearch(scrollPosition > jumbotronHeight);
         };
+        
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -24,17 +33,17 @@ const Navbar = () => {
                 <div className='flex justify-between items-center h-14 sm:h-20 2xl:h-24'>
                     <a href="/" className='flex items-center group'>
                         <svg width="90" height="27" viewBox="0 0 89 27" fill="none" xmlns="http://www.w3.org/2000/svg" className='transition-transform duration-300 group-hover:scale-105 sm:w-[120px]'>
-                        <g fill="#404145">
-                            <path d="m81.6 13.1h-3.1c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-13.4h-2.5c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-18.4h6v2.8c1-2.2 2.3-2.8 4.3-2.8h7.3v2.8c1-2.2 2.3-2.8 4.3-2.8h2zm-25.2 5.6h-12.4c.3 2.1 1.6 3.2 3.7 3.2 1.6 0 2.7-.7 3.1-1.8l5.3 1.5c-1.3 3.2-4.5 5.1-8.4 5.1-6.5 0-9.5-5.1-9.5-9.5 0-4.3 2.6-9.4 9.1-9.4 6.9 0 9.2 5.2 9.2 9.1 0 .9 0 1.4-.1 1.8zm-5.7-3.5c-.1-1.6-1.3-3-3.3-3-1.9 0-3 .8-3.4 3zm-22.9 11.3h5.2l6.6-18.3h-6l-3.2 10.7-3.2-10.8h-6zm-24.4 0h5.9v-13.4h5.7v13.4h5.9v-18.4h-11.6v-1.1c0-1.2.9-2 2.2-2h3.5v-5h-4.4c-4.3 0-7.2 2.7-7.2 6.6v1.5h-3.4v5h3.4z" ></path>
-                        </g>
-                        <g fill="#1dbf73">
-                            <path d="m85.3 27c2 0 3.7-1.7 3.7-3.7s-1.7-3.7-3.7-3.7-3.7 1.7-3.7 3.7 1.7 3.7 3.7 3.7z"></path>
-                        </g>
-                    </svg>
-                </a>
+                            <g fill="#404145">
+                                <path d="m81.6 13.1h-3.1c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-13.4h-2.5c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-18.4h6v2.8c1-2.2 2.3-2.8 4.3-2.8h7.3v2.8c1-2.2 2.3-2.8 4.3-2.8h2zm-25.2 5.6h-12.4c.3 2.1 1.6 3.2 3.7 3.2 1.6 0 2.7-.7 3.1-1.8l5.3 1.5c-1.3 3.2-4.5 5.1-8.4 5.1-6.5 0-9.5-5.1-9.5-9.5 0-4.3 2.6-9.4 9.1-9.4 6.9 0 9.2 5.2 9.2 9.1 0 .9 0 1.4-.1 1.8zm-5.7-3.5c-.1-1.6-1.3-3-3.3-3-1.9 0-3 .8-3.4 3zm-22.9 11.3h5.2l6.6-18.3h-6l-3.2 10.7-3.2-10.8h-6zm-24.4 0h5.9v-13.4h5.7v13.4h5.9v-18.4h-11.6v-1.1c0-1.2.9-2 2.2-2h3.5v-5h-4.4c-4.3 0-7.2 2.7-7.2 6.6v1.5h-3.4v5h3.4z" ></path>
+                            </g>
+                            <g fill="#1dbf73">
+                                <path d="m85.3 27c2 0 3.7-1.7 3.7-3.7s-1.7-3.7-3.7-3.7-3.7 1.7-3.7 3.7 1.7 3.7 3.7 3.7z"></path>
+                            </g>
+                        </svg>
+                    </a>
 
                     {/* Desktop Search */}
-                    <div className='flex-1 max-w-2xl mx-8 hidden lg:block'>
+                    <div className={`flex-1 max-w-2xl mx-8 hidden lg:block transition-all duration-300 ${showSearch ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
                         <div className={`relative transition-all duration-300 ${isSearchFocused ? 'scale-105' : ''}`}>
                             <input 
                                 type="text" 
@@ -169,8 +178,8 @@ const Navbar = () => {
                                     <span className='absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300'></span>
                                 </button>
                             </li>
-                    </ul>
-                </nav>
+                        </ul>
+                    </nav>
 
                     {/* Mobile Actions */}
                     <div className='flex items-center space-x-3 sm:space-x-6 lg:hidden'>
