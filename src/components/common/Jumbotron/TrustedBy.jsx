@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoogleLogo, MetaLogo, PgLogo, NetflixLogo, PaypalLogo, PayoneerLogo } from '../svg';
+import { GoogleLogo, MetaLogo, PgLogo, NetflixLogo, PaypalLogo, PayoneerLogo } from './svg';
 
 const logos = [GoogleLogo, MetaLogo, PgLogo, NetflixLogo, PaypalLogo, PayoneerLogo];
 
@@ -12,16 +12,16 @@ const TrustedBy = () => {
                     // Only show first 4 logos on smaller screens
                     if (index > 3) {
                         return (
-                            <div key={index} 
+                            <div key={index}
                                 className="hidden md:block transform hover:scale-110 transition-all duration-300 
                                          hover:drop-shadow-lg hover:drop-shadow-white/20 flex-shrink-0">
                                 <Logo className="h-6 sm:h-8 2xl:h-10 w-auto" />
                             </div>
                         );
                     }
-                    
+
                     return (
-                        <div key={index} 
+                        <div key={index}
                             className="transform hover:scale-110 transition-all duration-300 
                                      hover:drop-shadow-lg hover:drop-shadow-white/20 flex-shrink-0">
                             <Logo className="h-6 sm:h-8 2xl:h-10 w-auto" />
