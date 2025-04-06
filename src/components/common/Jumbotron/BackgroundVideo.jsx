@@ -1,59 +1,32 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import VideoControls from './VideoControls';
 
 const BackgroundVideo = () => {
     const [isPlaying, setIsPlaying] = useState(true);
-    const [isApiReady, setIsApiReady] = useState(false);
-    const iframeRef = useRef(null);
-
-    useEffect(() => {
-        // Initialize YouTube API
-        const tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        const firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        // Define the callback function for when the API is ready
-        window.onYouTubeIframeAPIReady = () => {
-            setIsApiReady(true);
-        };
-
-        return () => {
-            // Cleanup
-            window.onYouTubeIframeAPIReady = null;
-        };
-    }, []);
+    const videoRef = useRef(null);
 
     const handleTogglePlay = () => {
-        if (iframeRef.current && isApiReady) {
-            const message = isPlaying ? 'pauseVideo' : 'playVideo';
-            iframeRef.current.contentWindow.postMessage(
-                JSON.stringify({
-                    event: 'command',
-                    func: message
-                }), 
-                '*'
-            );
+        if (videoRef.current) {
+            if (isPlaying) {
+                videoRef.current.pause();
+            } else {
+                videoRef.current.play();
+            }
             setIsPlaying(!isPlaying);
         }
     };
 
     return (
         <div className="absolute inset-0 w-full h-full overflow-hidden">
-            <iframe
-                ref={iframeRef}
+            <video
+                ref={videoRef}
                 className="w-full h-full object-cover scale-110"
-                src="https://www.youtube-nocookie.com/embed/iaoq5WjHyFc?autoplay=1&mute=1&loop=1&playlist=iaoq5WjHyFc&controls=0&showinfo=0&rel=0&enablejsapi=1&origin=http://localhost:5173"
-                title="YouTube video player"
-                style={{ border: 'none' }}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen={true}
-                loading="lazy"
-                crossOrigin="anonymous"
-                sandbox="allow-scripts allow-same-origin allow-presentation"
-                importance="low"
-                fetchPriority="low"
+                src="https://fiverr-res.cloudinary.com/video/upload/v1/video-attachments/generic_asset/asset/18ad23debdc5ce914d67939eceb5fc27-1738830703211/Desktop%20Header%20new%20version"
+                autoPlay
+                muted
+                loop
+                playsInline
+                title="Fiverr background video"
             />
 
             {/* Base gradient overlay */}
