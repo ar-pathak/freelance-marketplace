@@ -4,6 +4,7 @@ import Navbar from "./components/layout/Navbar";
 import Jumbotron from "./components/common/Jumbotron";
 import Services from "./components/common/Services/Services";
 import PopularServices from "./components/common/PopularServices/PopularServices";
+import FiverrProTem from "./components/common/FiverrPro/FiverrProTem";
 const App = () => {
     return (
         <div>
@@ -11,6 +12,7 @@ const App = () => {
             <Jumbotron />
             <Services />
             <PopularServices />
+            <FiverrProTem />
         </div>
     )
 }

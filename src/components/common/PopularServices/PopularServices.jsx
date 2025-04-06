@@ -117,13 +117,13 @@ const PopularServices = () => {
             </div>
 
             <div className="max-w-4xl mx-auto text-center mb-12 md:mb-20 relative">
-                <span className="inline-block px-3 py-1 bg-blue-50 rounded-full text-blue-600 text-xs md:text-sm font-medium mb-3 md:mb-4">
+                <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full text-blue-600 text-sm font-medium mb-4 animate-fade-in-up">
                     Explore Services
                 </span>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 animate-fade-in-up animation-delay-200">
                     Popular Services
                 </h1>
-                <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto px-4 md:px-0">
+                <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto animate-fade-in-up animation-delay-400">
                     Discover our most sought-after services that help businesses and individuals achieve their goals
                 </p>
             </div>
@@ -147,7 +147,7 @@ const PopularServices = () => {
                         {services.map((service, index) => (
                             <div 
                                 key={service.id}
-                                className={`flex-shrink-0 w-full px-4 transition-all duration-300`}
+                                className={`flex-shrink-0 w-full px-4 transition-all duration-500`}
                                 style={{ width: `${100 / slidesPerView}%` }}
                             >
                                 <ServiceCard 
@@ -173,15 +173,15 @@ const PopularServices = () => {
                 {/* Auto-play control */}
                 <button
                     onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-                    className="absolute bottom-0 right-0 p-2 text-gray-600 hover:text-blue-600 transition-colors duration-300"
+                    className="absolute bottom-0 right-0 p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-500 group"
                     aria-label={isAutoPlaying ? 'Pause autoplay' : 'Start autoplay'}
                 >
                     {isAutoPlaying ? (
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-6 h-6 text-gray-600 group-hover:text-blue-600 transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     ) : (
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-6 h-6 text-gray-600 group-hover:text-blue-600 transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
