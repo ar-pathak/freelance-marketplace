@@ -7,6 +7,7 @@ import PopularServices from "./components/common/PopularServices/PopularServices
 import FiverrProTem from "./components/common/FiverrPro/FiverrProTem";
 import SuccessOnFiverr from "./components/common/SuccessOnFiverr";
 import TrustedServices from "./components/common/TrustedServices";
+import JoinFiverrPromo from "./components/common/JoinFiverrPromo/JoinFiverrPromo";
 const App = () => {
     return (
         <div>
@@ -17,6 +18,7 @@ const App = () => {
             <FiverrProTem />
             <SuccessOnFiverr />
             <TrustedServices />
+            <JoinFiverrPromo />
         </div>
     )
 }
