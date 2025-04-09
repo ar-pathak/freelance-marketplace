@@ -61,7 +61,7 @@ const TrustedServices = () => {
                     {data.map((item) => (
                         <div
                             key={item.id}
-                            className={`group bg-white backdrop-blur-sm bg-opacity-80 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 p-3 sm:p-4 md:p-5 cursor-pointer border border-gray-100 hover:border-blue-200 h-full flex flex-col transform hover:-translate-y-1 sm:hover:-translate-y-2 relative overflow-hidden ${hoveredId === item.id ? 'ring-2 ring-blue-500 ring-opacity-50' : ''}`}
+                            className={`group bg-white/80 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 p-3 sm:p-4 md:p-5 cursor-pointer border border-gray-100 hover:border-blue-200 h-full flex flex-col transform hover:-translate-y-1 sm:hover:-translate-y-2 relative overflow-hidden ${hoveredId === item.id ? 'ring-2 ring-blue-500 ring-opacity-50' : ''}`}
                             onMouseEnter={() => setHoveredId(item.id)}
                             onMouseLeave={() => setHoveredId(null)}
                         >

@@ -15,7 +15,7 @@ const SuccessOnFiverr = () => {
                             <div className="absolute -top-6 -left-6 w-16 sm:w-20 h-16 sm:h-20 bg-green-500/10 rounded-full blur-xl hidden sm:block"></div>
                             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight relative">
                                 <span className="relative inline-block">
-                                    <span className="absolute -bottom-2 left-0 w-full h-1 bg-green-500 transform -skew-x-12"></span>
+                                    <span className="absolute -bottom-2 left-0 w-full h-1  transform -skew-x-12"></span>
                                     <span className="relative">What success</span>
                                 </span> on Fiverr looks like
                             </h2>

@@ -10,6 +10,7 @@ import TrustedServices from "./components/common/TrustedServices";
 import JoinFiverrPromo from "./components/common/JoinFiverrPromo/JoinFiverrPromo";
 import MadeOnFiverr from "./components/common/MadeOnFiverr";
 import BackToTop from "./components/layout/BackToTop";
+import GuidesToHelpYouGrow from "./components/common/GuidesToHelpYouGrow/GuidesToHelpYouGrow";
 
 const App = () => {
     return (
@@ -31,6 +32,8 @@ const App = () => {
                 <JoinFiverrPromo />
                 <div className="border-b border-gray-100"></div>
                 <MadeOnFiverr />
+                <div className="border-b border-gray-100"></div>
+                <GuidesToHelpYouGrow />
             </main>
             <BackToTop />
         </div>

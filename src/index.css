@@ -135,7 +135,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Glass morphism */
 .glass-effect {
-  @apply bg-white bg-opacity-80 backdrop-blur-md;
+  @apply bg-white/80 backdrop-blur-md;
 }
 
 /* Image hover effect */
