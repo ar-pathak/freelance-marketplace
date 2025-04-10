@@ -11,7 +11,7 @@ import JoinFiverrPromo from "./components/common/JoinFiverrPromo/JoinFiverrPromo
 import MadeOnFiverr from "./components/common/MadeOnFiverr";
 import BackToTop from "./components/layout/BackToTop";
 import GuidesToHelpYouGrow from "./components/common/GuidesToHelpYouGrow/GuidesToHelpYouGrow";
-
+import JoinFiverrPromo_2 from "./components/common/JoinFiverrPromo/JoinFiverrPromo_2";
 const App = () => {
     return (
         <div className="min-h-screen bg-white font-inter text-gray-900 flex flex-col">
@@ -34,6 +34,7 @@ const App = () => {
                 <MadeOnFiverr />
                 <div className="border-b border-gray-100"></div>
                 <GuidesToHelpYouGrow />
+                <JoinFiverrPromo_2 />
             </main>
             <BackToTop />
         </div>
