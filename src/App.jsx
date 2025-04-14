@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom/client";
 import React from 'react'
+import { AuthProvider } from './context/AuthContext';
 import Navbar from "./components/layout/Navbar";
 import Jumbotron from "./components/common/Jumbotron";
 import Services from "./components/common/Services/Services";
@@ -13,33 +14,39 @@ import BackToTop from "./components/layout/BackToTop";
 import GuidesToHelpYouGrow from "./components/common/GuidesToHelpYouGrow/GuidesToHelpYouGrow";
 import JoinFiverrPromo_2 from "./components/common/JoinFiverrPromo/JoinFiverrPromo_2";
 import Footer from "./components/layout/Footer";
+import FiverrGo from "./components/common/FiverrGo";
+
 const App = () => {
     return (
-        <div className="min-h-screen bg-white font-inter text-gray-900 flex flex-col">
-            <Navbar />
-            <main className="flex-grow">
-                <Jumbotron />
-                <div className="border-b border-gray-100"></div>
-                <Services />
-                <div className="border-b border-gray-100"></div>
-                <PopularServices />
-                <div className="border-b border-gray-100"></div>
-                <FiverrProTem />
-                <div className="border-b border-gray-100"></div>
-                <SuccessOnFiverr />
-                <div className="border-b border-gray-100"></div>
-                <TrustedServices />
-                <div className="border-b border-gray-100"></div>
-                <JoinFiverrPromo />
-                <div className="border-b border-gray-100"></div>
-                <MadeOnFiverr />
-                <div className="border-b border-gray-100"></div>
-                <GuidesToHelpYouGrow />
-                <JoinFiverrPromo_2 />
-            </main>
-            <BackToTop />
-            <Footer />
-        </div>
+        <AuthProvider>
+            <div className="min-h-screen bg-white font-inter text-gray-900 flex flex-col">
+                <Navbar />
+                <main className="flex-grow">
+                    <Jumbotron />
+                    <div className="border-b border-gray-100"></div>
+                    <Services />
+                    <div className="border-b border-gray-100"></div>
+                    <PopularServices />
+                    <div className="border-b border-gray-100"></div>
+                    <FiverrGo />
+                    <div className="border-b border-gray-100"></div>
+                    <FiverrProTem />
+                    <div className="border-b border-gray-100"></div>
+                    <SuccessOnFiverr />
+                    <div className="border-b border-gray-100"></div>
+                    <TrustedServices />
+                    <div className="border-b border-gray-100"></div>
+                    <JoinFiverrPromo />
+                    <div className="border-b border-gray-100"></div>
+                    <MadeOnFiverr />
+                    <div className="border-b border-gray-100"></div>
+                    <GuidesToHelpYouGrow />
+                    <JoinFiverrPromo_2 />
+                </main>
+                <BackToTop />
+                <Footer />
+            </div>
+        </AuthProvider>
     )
 }
 
